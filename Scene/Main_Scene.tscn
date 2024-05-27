@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scene/Magazine.tscn" type="PackedScene" id=1]
+
+[sub_resource type="PlaneShape" id=1]
+
+[sub_resource type="PlaneMesh" id=2]
+size = Vector2( 10, 10 )
+
+[node name="Node" type="Node"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+mesh = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.036035, -0.386179, 0.92172, -0.0333653, 0.92134, 0.387324, -0.998793, -0.0447107, 0.0203155, 2.10996, 1.57486, 0 )
+
+[node name="Magazine" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.036035, -0.386179, 0.92172, -0.0333653, 0.92134, 0.387324, -0.998793, -0.0447107, 0.0203155, -1.21015, 0.228382, -0.443137 )
