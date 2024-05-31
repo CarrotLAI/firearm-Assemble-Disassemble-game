@@ -8,9 +8,13 @@ var draging #node
 var drag_offset = Vector3()
 
 func _ready():
-	camera = get_tree().get_root().get_camera()
 	set_physics_process(false)
 
+func _input(event):
+	camera = get_tree().get_root().get_camera()
+	if camera == Camera:
+		_input(false)
+	
 func register_draggable(node):
 	draggables.append(node)
 	node.connect("drag_start",self,"_drag_start")

@@ -2,7 +2,7 @@ extends Spatial
 
 
 #onready var congratulations = $congratulations
-onready var imported_array = get_node("gun")
+#onready var imported_array = get_node("gun")
 var to_win: Array = []
 var objects = []
 var dragging = false
@@ -29,10 +29,10 @@ func game_over():
 	pass
 
 
-func _on_Draggable_drag_move(node, cast):	
-	var position = Vector3(cast.position.x, 0, cast.position.z)
-	print(get_translation())
-	print_debug(cast.position)
+#func _on_Draggable_drag_move(node, cast):	
+#	var position = Vector3(cast.position.x, 0, cast.position.z)
+#	print(get_translation())
+#	print_debug(cast.position)
 #	for child in get_children():
 #		if child.is_in_group("spring"):
 #			print("true")
@@ -45,9 +45,9 @@ func _on_Draggable_drag_move(node, cast):
 #	objects.translation(position)
 
 
-func _on_Draggable_drag_stop(node):
-	objects = []
-	return
+#func _on_Draggable_drag_stop(node):
+#	objects = []
+#	return
 
 
 #func _on_Draggable_slide_drag_move(node, cast):

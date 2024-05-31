@@ -21,13 +21,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Gun Assemble V 2"
-run/main_scene="res://Scene/game_lvl_easy.tscn"
+run/main_scene="res://Scene/game_index.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 DragDropController="*res://addons/DragDrop3D/DragDropController.gd"
-GRayCast="*res://Script/RayCast.gd"
+GRayCast="res://Script/RayCast.gd"
+GCondition="*res://Script/global_condition.gd"
 
 [display]
 

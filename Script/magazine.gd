@@ -1,6 +1,6 @@
 extends Spatial
 
-onready var imported_collided = get_node('../gun/RayCast').get("collided")
+#onready var imported_collided = get_node('../gun/RayCast').get("collided")
 
 func _on_draggable_mag_drag_move(node, cast):
 #	print(imported_collided)
