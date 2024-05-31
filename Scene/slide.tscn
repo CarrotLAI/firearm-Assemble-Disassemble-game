@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://addons/DragDrop3D/Draggable.gd" type="Script" id=3]
-[ext_resource path="res://Script/slide.gd" type="Script" id=4]
 [ext_resource path="res://assets/Material_015.material" type="Material" id=9]
 
 [sub_resource type="ArrayMesh" id=4]
@@ -24,12 +23,11 @@ data = PoolVector3Array( 2.8606, 0.1862, -0.9986, 2.945, 0.3834, -0.9986, 2.8606
 
 [node name="slide" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 0.049, 0.999, 0, -0.999, 0.049, 0, 0, 0 )
-script = ExtResource( 4 )
 
 [node name="Spatial" type="Spatial" parent="." groups=["slide"]]
 
 [node name="slide" type="MeshInstance" parent="Spatial"]
-transform = Transform( 1, -2.41882e-13, -2.16324e-17, 2.41882e-13, 1, -1.54041e-09, 5.23162e-17, 3.72529e-09, 0.4135, 0, 0, 0 )
+transform = Transform( -1, 0, 3.61493e-08, 0, 1, 0, -8.74228e-08, 0, -0.4135, 0, 0, 0 )
 mesh = SubResource( 4 )
 
 [node name="slide" type="Area" parent="Spatial/slide" groups=["slide"]]

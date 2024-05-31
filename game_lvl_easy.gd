@@ -16,10 +16,10 @@ func _ready():
 
 func _input(event):
 #	if to_win == [1, 1, 1, 1, 1]:
-		game_win()
-		
-	game_over()
-	
+#		game_win()
+#
+#	game_over()
+	pass
 	
 func game_win():
 	get_node("congratulations").show()
@@ -50,39 +50,34 @@ func _on_Draggable_drag_stop(node):
 	return
 
 
-func _on_Draggable_slide_drag_move(node, cast):
-	var is_drag = false
-	var offset 
-	var posX 
-	var posZ 
-	var newPos
-	var drag_offset = cast.collider.get_parent().transform.origin#floor origin
-#	var position = Vector3(drag_offset.x, 0, drag_offset.z)
-	var slide_node = get_node("%slide/Spatial")
-	is_drag = true
-	posX = 0
-	posZ = 0
-#	print(slide_node)
-#	if the condition is not met, or if the slide is not outside of the area drag the group
-	if to_win[1] == 1: 
-		get_node("%slide").set_translation(cast.position)
-	
-		
-	if is_drag:
-		
-		offset = (self.transform.origin)
-		posX = (offset.x - cast.position.x) * .1
-		posZ = (offset.z - cast.position.z) * .1
-		newPos = Vector3(cast.position.x, 0,cast.position.z)
-		slide_node.set_translation(newPos)
-			
-#		print("translation: ", offset.x)
-#		print("casthit: ", cast.position.x)
+#func _on_Draggable_slide_drag_move(node, cast):
+#	var is_drag = false
+#	var offset 
+#	var posX 
+#	var posZ 
+#	var newPos
+#	var drag_offset = cast.collider.get_parent().transform.origin#floor origin
+##	var position = Vector3(drag_offset.x, 0, drag_offset.z)
+#	var slide_node = get_node("%slide/Spatial")
+#	is_drag = true
+#	posX = 0
+#	posZ = 0
+##	print(slide_node)
+##	if the condition is not met, or if the slide is not outside of the area drag the group
+#	if to_win[1] == 1: 
+#		get_node("%slide").set_translation(cast.position)
+#
+#
+#	if is_drag:
+#
+#		offset = (self.transform.origin)
+#		posX = (offset.x - cast.position.x) * .1
+#		posZ = (offset.z - cast.position.z) * .1
+#		newPos = Vector3(cast.position.x, 0,cast.position.z)
 #		slide_node.set_translation(newPos)
-	is_drag = false
-	return Vector3()
-
-
-func _on_Draggable_slide_drag_stop(node):
-	objects = []
-	return
+#
+##		print("translation: ", offset.x)
+##		print("casthit: ", cast.position.x)
+##		slide_node.set_translation(newPos)
+#	is_drag = false
+#	return Vector3()

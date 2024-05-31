@@ -51,14 +51,11 @@ func input_event(camera, event, click_position, click_normal, shape_idx, node):
 		if event.is_pressed():
 			if hovered:
 				current = hovered.get_parent()
-				emit_signal("drag_start", self)
-				
-		elif current:
+				emit_signal("drag_start", self)	
+			elif current:
+				emit_signal("drag_stop", self)	
+		else:
 			emit_signal("drag_stop", self)
 			
-#	if event.button_index == BUTTON_LEFT and not event.pressed():
-#		current = hovered.get_parent()
-#		emit_signal("drag_stop", self)
-
 func depth_sort(a,b):
 	return b.get_index()<a.get_index()

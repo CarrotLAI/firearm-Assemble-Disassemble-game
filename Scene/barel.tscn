@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/Material_014.material" type="Material" id=1]
 [ext_resource path="res://assets/Material_011.material" type="Material" id=2]
+[ext_resource path="res://addons/DragDrop3D/Draggable.gd" type="Script" id=3]
 
 [sub_resource type="ArrayMesh" id=11]
 resource_name = "glock_Cylinder006"
@@ -40,7 +41,12 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 transform = Transform( 7.97688e-08, 1.126, 0, -0.22305, 4.02688e-07, 3.72529e-09, 3.72529e-09, 0, 0.22305, 0, 0, 0 )
 mesh = SubResource( 11 )
 
-[node name="StaticBody" type="StaticBody" parent="barel"]
+[node name="Area" type="Area" parent="barel"]
+transform = Transform( 1, 1.13687e-13, -1.77636e-15, 0, 1, 0, 1.77636e-15, -3.38813e-21, 1, 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="barel/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="barel/Area"]
+transform = Transform( 1, 0, 1.77636e-15, 0, 1, 0, -1.77636e-15, -6.77626e-21, 1, 0, 0, 0 )
 shape = SubResource( 12 )
+
+[node name="Draggable_barrel" type="Node" parent="barel/Area"]
+script = ExtResource( 3 )

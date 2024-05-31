@@ -42,4 +42,5 @@ transform = Transform( -2.20415, -0.637072, -1.66879e-08, -5.50563, 19.0485, -3.
 shape = SubResource( 12 )
 
 [connection signal="area_entered" from="Cube006/Area" to="." method="_on_Area_area_entered"]
+[connection signal="body_entered" from="Cube006/Area" to="." method="_on_Area_body_entered"]
 [connection signal="drag_move" from="Cube006/Area/draggable_mag" to="." method="_on_draggable_mag_drag_move"]

@@ -21,7 +21,6 @@ func _drag_start(node):
 	set_physics_process(true)
 	
 func _drag_stop(node):
-	print("node stop at: ", node)
 	set_physics_process(false)
 
 #raycast mouse
