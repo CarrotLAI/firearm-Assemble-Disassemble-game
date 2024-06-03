@@ -32,9 +32,9 @@ GCondition="*res://Script/global_condition.gd"
 
 [display]
 
-window/size/width=720
+window/size/width=960
 window/size/height=1280
-window/size/test_width=360
+window/size/test_width=480
 window/size/test_height=640
 window/handheld/orientation="portrait"
 window/stretch/mode="viewport"

@@ -37,16 +37,16 @@ data = PoolVector3Array( -0.0713, -1.1955, -1, 0.0223, 0.7389, -0.9956, -0.0713,
 [node name="barel" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 
-[node name="barel" type="MeshInstance" parent="." groups=["slide"]]
+[node name="barel_mesh" type="MeshInstance" parent="." groups=["slide"]]
 transform = Transform( 7.97688e-08, 1.126, 0, -0.22305, 4.02688e-07, 3.72529e-09, 3.72529e-09, 0, 0.22305, 0, 0, 0 )
 mesh = SubResource( 11 )
 
-[node name="Area" type="Area" parent="barel"]
+[node name="barrel_area" type="Area" parent="barel_mesh"]
 transform = Transform( 1, 1.13687e-13, -1.77636e-15, 0, 1, 0, 1.77636e-15, -3.38813e-21, 1, 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="barel/Area"]
+[node name="CollisionShape" type="CollisionShape" parent="barel_mesh/barrel_area"]
 transform = Transform( 1, 0, 1.77636e-15, 0, 1, 0, -1.77636e-15, -6.77626e-21, 1, 0, 0, 0 )
 shape = SubResource( 12 )
 
-[node name="Draggable_barrel" type="Node" parent="barel/Area"]
+[node name="Draggable_barrel" type="Node" parent="barel_mesh/barrel_area"]
 script = ExtResource( 3 )

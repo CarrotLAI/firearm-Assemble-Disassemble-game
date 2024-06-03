@@ -1,24 +1,20 @@
 extends Spatial
 
-export var condition_to_win = [0,0]
+var condition_to_win = [{"mag_area": 0}, {"slide_area":0}, {"spring_area":0}, {"barel_area": 0}]
 #onready var ray_cast = $Spatial/RayCast
-
 var rotating = false
 var prev_mousePos
 var next_mousePos
 var hovered
 var slide_lock_open = false
+var switch = false
 
-func _ready():
-	set_process(false)
 
-#func _input(event):
-#	if event.is_action_pressed("click") and ray_cast.is_colliding():
-#		var collider = ray_cast.get_collider()
-#		print("Dropped object:", collider)
-
-func _on_restrict_area_entered(area):
-	print_debug(area)
+func _process(delta):
+	if condition_to_win == [{"mag_area": 1}, {"slide_area": 1},{"spring_area": 1},{"barel_area": 1}]:
+		print("congratulations")
+#func _on_restrict_area_entered(area):
+#	print_debug(area)
 	
 #func _on_condition_area_area_exited(area):
 #	condition_to_win[1]= 1
@@ -31,37 +27,21 @@ func _on_restrict_area_entered(area):
 
 
 
-#detecting input
-func _on_trigger_input_event(camera, event, click_position, click_normal, shape_idx):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
-		if event.is_pressed():
-			if hovered:
-				set_process(true)
-		else:
-			set_process(false)
-	
-#Responsible for rotating the trigger to z=25
-func _process(delta):
-	var trigger = hovered
-#	var rotation = trigger.rotation_degrees
-	
-	if Input.is_action_just_pressed("click"):
-		rotating = true
-		prev_mousePos = get_viewport().get_mouse_position()
-	if Input.is_action_just_released("click"):
-		rotating = false
-		trigger = Vector3()
-		set_process(false)	
-		
-	if rotating:
-		next_mousePos = get_viewport().get_mouse_position()
-		trigger.rotate_z(-(next_mousePos.x - prev_mousePos.x) * .3 * delta)
-		prev_mousePos = next_mousePos
-	
-#	if rotation.z == 25:
-#		print("true")
-#		trigger.rotation_degrees = next_mousePos
+func _on_magazine_area_area_exited(area):
+	if area.name == "magazine_area":
+		condition_to_win[0] = {"mag_area": 1}
+		print(condition_to_win)
 
-func _on_trigger_mouse_entered():
-	hovered = get_node('./Spatial/trigger')
 
+func _on_slide_area_area_exited(area):
+	if area.name == "slide_area":
+		condition_to_win[0] = {"slide_area": 1}
+
+
+func _on_spring_area_area_exited(area):
+	if area.name == "spring_area":
+		condition_to_win[0] = {"spring_area": 1}
+
+func _on_barel_area_area_exited(area):
+	if area.name == "barel_area":
+		condition_to_win[0] = {"barel_area": 1}
