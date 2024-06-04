@@ -6,6 +6,9 @@ extends Control
 ## Instantiate the scene
 #var instance = scene_to_add.instance()
 
-var easy_scene = load("res://Scene/game_lvl_easy.tscn")
-func _on_easy_pressed():
-	get_tree().change_scene_to(easy_scene)
+var glock_disassemble = load("res://Scene/glock_disassemble.tscn")
+#func _on_easy_pressed():
+#	get_tree().change_scene_to(easy_scene)
+
+func _on_disassemble_pressed():
+	get_tree().change_scene_to(glock_disassemble)

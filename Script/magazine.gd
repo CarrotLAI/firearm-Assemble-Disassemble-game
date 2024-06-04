@@ -8,6 +8,8 @@ func _on_draggable_mag_drag_move(node, cast):
 	var positionX = cast.position.x
 	var positionZ = cast.position.z 
 	var mag_pos = magazine.transform.origin
+#	var offset = mag_pos - cast.position
+#	transform.translated(offset)
 #	var offset = -(mag_pos - cast.position) * .3 + cast.position
 #	print(mag_pos)
 #	var position = Vector3(offset.x, mag_pos.y ,offset.z)

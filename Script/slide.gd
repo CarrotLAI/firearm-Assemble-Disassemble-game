@@ -103,11 +103,15 @@ func _on_Draggable_slide_drag_stop(node):
 func _on_SpringDrag_drag_move(node, cast):
 #	var draggable = get_node("Spatial/slide/slide/Draggable_slide")
 #	draggable.disconnect("Draggable_slide", self, "_on_SpringDrag_drag_move")
-	var spring = get_node("%spring")
+#	var prev_position = get_viewport().get_mouse_position()
+#	var next_position = get_viewport().get_mouse_position()
+#	var current_mouse = (prev_position - next_position) - 
+#	var spring = get_node("%spring")
 	offset = (spring.transform.origin)
+	var drag_offset = lerp(offset, cast.position, 25 * 1)	
 	var positionX = cast.position.x
-	var positionZ = (cast.position.z - offset.z) * .4
-	newPos = Vector3(positionX, offset.y, positionZ)
+	var positionZ = (cast.position.z - offset.z) * .9
+	newPos = Vector3(positionX, offset.y, offset.z)
 	spring.set_translation(newPos)
 
 
@@ -115,13 +119,17 @@ func _on_SpringDrag_drag_move(node, cast):
 func _on_slide_area_exited(area):
 	print(area)
 
-
+#fix this later with spring
+#fix there origin
 func _on_Draggable_barrel_drag_move(node, cast):
+	var prev_position = get_viewport().get_mouse_position()
+	var next_position = get_viewport().get_mouse_position()
+	var current_mouse = -(prev_position.y - next_position.y) *.1
 	var barel_position = barel.transform.origin
 	var positionX = cast.position.x
 	var positionZ = (cast.position.z - barel_position.z)
 #	print(positionZ, " ", barel_position.z)
-	var newPos = Vector3(positionX, barel_position.y, positionZ)
+	var newPos = Vector3(positionX, barel_position.y, current_mouse)
 	barel.set_translation(newPos)
 
 
