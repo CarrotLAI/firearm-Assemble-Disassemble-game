@@ -8,18 +8,18 @@ var objects = []
 var dragging = false
 var offset = Vector3()
 
-func _ready():
+#func _ready():
 #	to_win = imported_array.condition_to_win
 #	print(to_win)
-	get_node("congratulations").hide()
+#	get_node("congratulations").hide()
 #	print_tree()
 
-func _input(event):
+#func _input(event):
 #	if to_win == [1, 1, 1, 1, 1]:
 #		game_win()
 #
 #	game_over()
-	pass
+#	pass
 	
 func game_win():
 	get_node("congratulations").show()

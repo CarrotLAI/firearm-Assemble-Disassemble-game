@@ -28,7 +28,7 @@ config/icon="res://icon.png"
 
 DragDropController="*res://addons/DragDrop3D/DragDropController.gd"
 GRayCast="res://Script/RayCast.gd"
-GCondition="*res://Script/global_condition.gd"
+GCondition="*res://Script/global/global_condition.gd"
 
 [display]
 

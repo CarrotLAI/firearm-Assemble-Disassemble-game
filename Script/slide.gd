@@ -106,13 +106,13 @@ func _on_SpringDrag_drag_move(node, cast):
 #	var prev_position = get_viewport().get_mouse_position()
 #	var next_position = get_viewport().get_mouse_position()
 #	var current_mouse = (prev_position - next_position) - 
-#	var spring = get_node("%spring")
+	var spring = get_node("%spring")
 	offset = (spring.transform.origin)
-	var drag_offset = lerp(offset, cast.position, 25 * 1)	
+#	var drag_offset = lerp(offset, cast.position, 25 * 1)	
 	var positionX = cast.position.x
 	var positionZ = (cast.position.z - offset.z) * .9
-	newPos = Vector3(positionX, offset.y, offset.z)
-	spring.set_translation(newPos)
+	var nextPos = Vector3(positionX, offset.y, offset.z)
+	spring.set_translation(nextPos)
 
 
 
