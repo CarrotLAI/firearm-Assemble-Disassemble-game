@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Gun Assemble V 2"
-run/main_scene="res://Scene/game_index.tscn"
+run/main_scene="res://Scene/boot_screen/splash_screen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
