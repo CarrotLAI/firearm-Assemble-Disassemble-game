@@ -28,32 +28,31 @@ margin_bottom = 967.0
 
 [node name="container" type="VBoxContainer" parent="result"]
 margin_left = 3.0
-margin_top = 360.0
+margin_top = 434.0
 margin_right = 962.0
 margin_bottom = 959.0
 
 [node name="Label" type="Label" parent="result/container"]
 margin_right = 959.0
-margin_bottom = 147.0
+margin_bottom = 97.0
 custom_fonts/font = SubResource( 14 )
 text = "Congratulations!
-Your score:
 Time finished:"
 align = 1
 autowrap = true
 
 [node name="back" type="Button" parent="result/container"]
-margin_top = 151.0
+margin_top = 101.0
 margin_right = 959.0
-margin_bottom = 204.0
+margin_bottom = 154.0
 custom_fonts/font = SubResource( 13 )
 text = "Back"
 flat = true
 
 [node name="time_label" type="Label" parent="result/container"]
-margin_top = 208.0
+margin_top = 158.0
 margin_right = 959.0
-margin_bottom = 255.0
+margin_bottom = 205.0
 custom_fonts/font = SubResource( 15 )
 
 [connection signal="pressed" from="result/container/back" to="." method="_on_back_pressed"]

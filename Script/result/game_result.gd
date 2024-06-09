@@ -6,7 +6,7 @@ onready var set_false = set_process(false)
 var value
 
 func _process(delta):
-	label.rect_position = Vector2(650, 100)
+	label.rect_position = Vector2(650, 50)
 	label.rect_size = Vector2(100, 0)
 	label.text = value
 	

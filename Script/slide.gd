@@ -19,10 +19,13 @@ var offset
 var posX 
 var posZ 
 var newPos
+var disable_barel = true
+var remove_spring = false;
 
-#func _ready():
-#	print(slideAll.transform.origin)
-	
+#fix later the mouse position
+func _physics():
+	pass 
+
 func _on_Draggable_drag_move(node, cast):
 #	var drag_offset = cast.collider.get_parent().transform.origin#floor origin
 #	var position = Vector3(drag_offset.x, 0, drag_offset.z)
@@ -86,6 +89,7 @@ func remove_slide(node, cast):
 #	set_translation(cast.)
 
 func _on_Draggable_slide_drag_stop(node):
+	
 	var slide = get_node("./slide")
 #	var position = slide.transform.origin
 	print("stop")
@@ -108,11 +112,21 @@ func _on_SpringDrag_drag_move(node, cast):
 #	var current_mouse = (prev_position - next_position) - 
 	var spring = get_node("%spring")
 	offset = (spring.transform.origin)
+
 #	var drag_offset = lerp(offset, cast.position, 25 * 1)	
-	var positionX = cast.position.x
-	var positionZ = (cast.position.z - offset.z) * .9
-	var nextPos = Vector3(positionX, offset.y, offset.z)
+	var positionX = cast.position.x / 3
+	var positionZ = cast.position.z / 3
+	var nextPos = Vector3(positionX, offset.y, positionZ)
 	spring.set_translation(nextPos)
+	if nextPos.x < -1.1 or nextPos.x > -0.4:
+		disable_barel = false
+		remove_spring = true
+	if remove_spring == true:
+		var updatePosition = Vector3(positionX, offset.y, positionZ)
+#func _on_spring_area_input_event(camera, event, position, normal, shape_idx):
+#		if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
+#			if event.is_pressed():
+#
 
 
 
@@ -122,18 +136,21 @@ func _on_slide_area_exited(area):
 #fix this later with spring
 #fix there origin
 func _on_Draggable_barrel_drag_move(node, cast):
-	var prev_position = get_viewport().get_mouse_position()
-	var next_position = get_viewport().get_mouse_position()
-	var current_mouse = -(prev_position.y - next_position.y) *.1
-	var barel_position = barel.transform.origin
-	var positionX = cast.position.x
-	var positionZ = (cast.position.z - barel_position.z)
+	if disable_barel == false:
+		var prev_position = get_viewport().get_mouse_position()
+		var next_position = get_viewport().get_mouse_position()
+		var current_mouse = -(prev_position.y - next_position.y) *.1
+		var barel_position = barel.transform.origin
+		var positionX = cast.position.x
+		var positionZ = (cast.position.z - barel_position.z)
 #	print(positionZ, " ", barel_position.z)
-	var newPos = Vector3(positionX, barel_position.y, current_mouse)
-	barel.set_translation(newPos)
+		var newPos = Vector3(positionX, barel_position.y, current_mouse)
+		barel.set_translation(newPos)
 
 
 func _on_slide_lock_input_event(camera, event, position, normal, shape_idx):
 	if event.is_pressed():
 		slide_lock_open = true
 		print(slide_lock_open)
+
+
